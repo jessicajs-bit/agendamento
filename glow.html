@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maquiagem Glow</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topo">
+      <img
+        src="imagem/WhatsApp Image 2025-11-14 at 19.16.14.jpeg"
+        alt="Banner do Site"
+      />
+    </header>
+      <div class="container">   
+    <h1>Maquiagem Glow</h1>
+    <a href="index.html" class="btn-voltar">Voltar ao Menu</a>
+
+    <section class="galeria">
+      <label>
+        <input type="radio" name="make" value="Glow - Estilo 1" />
+        <img src="https://via.placeholder.com/300" />
+        <p>Estilo 1</p>
+      </label>
+
+      <label>
+        <input type="radio" name="make" value="Glow - Estilo 2" />
+        <img src="https://via.placeholder.com/300" />
+        <p>Estilo 2</p>
+      </label>
+
+      <label>
+        <input type="radio" name="make" value="Glow - Estilo 3" />
+        <img src="https://via.placeholder.com/300" />
+        <p>Estilo 3</p>
+      </label>
+    </section>
+
+    <div class="form">
+      <input type="text" id="nome" placeholder="Seu nome" />
+      <input type="date" id="data" />
+      <input type="time" id="hora" />
+      <button onclick="enviarWhatsApp()">Agendar no WhatsApp</button>
+    </div>
+
+    <script>
+      function enviarWhatsApp() {
+        const nome = document.getElementById("nome").value;
+        const data = document.getElementById("data").value;
+        const hora = document.getElementById("hora").value;
+        const make = document.querySelector('input[name="make"]:checked');
+
+        if (!nome || !data || !hora || !make) {
+          alert("Preencha tudo!");
+          return;
+        }
+
+        const mensagem = `Olá, meu nome é ${nome}. Quero agendar ${make.value} no dia ${data} às ${hora}.`;
+        const link = "https://wa.me/message/VVW5WCJGTM6ZD1";
+
+        window.open(`${link}?text=${encodeURIComponent(mensagem)}`, "_blank");
+      }
+    </script>
+    
+  </body>
+</html>
